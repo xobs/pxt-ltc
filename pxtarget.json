@@ -6,10 +6,7 @@
     "description": "A Blocks / JavaScript code editor for the micro:bit.",
     "corepkg": "core",
     "bundleddirs": [
-        "libs/core",
-        "libs/radio",
-        "libs/devices",
-        "libs/bluetooth"
+        "libs/core"
     ],
     "cloud": {
         "workspace": false,
@@ -33,36 +30,7 @@
             {
                 "type": "package",
                 "map": {
-                    "microbit": "core",
-                    "microbit-bluetooth": "bluetooth",
-                    "microbit-radio": "radio",
-                    "microbit-devices": "devices",
-                    "microbit-led": "",
-                    "microbit-music": "",
-                    "microbit-game": "",
-                    "microbit-pins": "",
-                    "microbit-serial": ""
-                }
-            },
-            {
-                "type": "missingPackage",
-                "map": {
-                    "radio\\s*\\.": "radio",
-                    "bluetooth\\s*\\.": "bluetooth",
-                    "devices\\s*\\.": "devices"
-                }
-            },
-            {
-                "type": "api",
-                "map": {
-                    "bluetooth\\s*\\.uartRead\\s*\\((.*?)\\)": "bluetooth.uartReadUntil($1)",
-                    "bluetooth\\s*\\.uartWrite\\s*\\((.*?)\\)": "bluetooth.uartWriteUntil($1)"
-                }
-            },
-            {
-                "type": "blockId",
-                "map": {
-                    "device_get_acceleration": "device_acceleration"
+                    "microbit": "core"
                 }
             }
         ]
