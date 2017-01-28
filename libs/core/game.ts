@@ -32,8 +32,6 @@ namespace game {
     let _countdownPause: number = 0;
     let _level: number = 1;
     let _gameId: number = 0;
-    let img: Image;
-    let sprites: LedSprite[];
 
     /**
      * Creates a new LED sprite pointing to the right.

@@ -1,6 +1,6 @@
 {
-    "id": "microbit",
-    "nickname": "microbit",
+    "id": "ltc",
+    "nickname": "ltc",
     "name": "pxt.microbit.org",
     "title": "pxt.microbit.org - Blocks / Javascript editor for micro:bit",
     "description": "A Blocks / JavaScript code editor for the micro:bit.",
@@ -30,7 +30,7 @@
             {
                 "type": "package",
                 "map": {
-                    "microbit": "core"
+                    "ltc": "core"
                 }
             }
         ]
@@ -145,16 +145,11 @@
         }
     },
     "compileService": {
-        "yottaTarget": "bbc-microbit-classic-gcc",
-        "yottaCorePackage": "microbit",
-        "githubCorePackage": "lancaster-university/microbit",
-        "gittag": "v2.0.0-rc7",
-        "serviceId": "microbit"
-    },
-    "serial": {
-        "manufacturerFilter": "^mbed$",
-        "nameFilter": "^mbed Serial Port",
-        "log": true
+        "yottaTarget": "chibitronics-ltc-gcc",
+        "yottaCorePackage": "chibitronics",
+        "githubCorePackage": "xobs/pxt-ltc-core",
+        "gittag": "v0.0.11-broken-ltc",
+        "serviceId": "foobar9"
     },
     "appTheme": {
         "accentColor": "#5C005C",
@@ -232,69 +227,6 @@
             }
         ],
         "hasReferenceDocs": true,
-        "usbDocs": "/device/usb",
-        "usbHelp": [
-            {
-                "name": "connection",
-                "os": "*",
-                "browser": "*",
-                "path": "/static/mb/device/usb-generic.jpg"
-            },
-            {
-                "name": "connection",
-                "os": "mac",
-                "browser": "*",
-                "path": "/static/mb/device/usb-mac.jpg"
-            },
-            {
-                "name": "save",
-                "os": "windows",
-                "browser": "firefox",
-                "path": "/static/mb/device/usb-windows-firefox-1.png"
-            },
-            {
-                "name": "save",
-                "os": "mac",
-                "browser": "firefox",
-                "path": "/static/mb/device/usb-osx-firefox-1.jpg"
-            },
-            {
-                "name": "save",
-                "os": "mac",
-                "browser": "chrome",
-                "path": "/static/mb/device/usb-osx-chrome.png"
-            },
-            {
-                "name": "save",
-                "os": "windows",
-                "browser": "edge",
-                "path": "/static/mb/device/usb-windows-edge-1.png"
-            },
-            {
-                "name": "save",
-                "os": "windows",
-                "browser": "ie",
-                "path": "/static/mb/device/usb-windows-ie11-1.png"
-            },
-            {
-                "name": "save",
-                "os": "windows",
-                "browser": "chrome",
-                "path": "/static/mb/device/usb-windows-chrome.png"
-            },
-            {
-                "name": "copy",
-                "os": "mac",
-                "browser": "*",
-                "path": "/static/mb/device/usb-osx-dnd.png"
-            },
-            {
-                "name": "copy",
-                "os": "windows",
-                "browser": "*",
-                "path": "/static/mb/device/usb-windows-sendto.jpg"
-            }
-        ],
         "invertedMenu": true,
         "coloredToolbox": true,
         "monacoToolbox": true,
