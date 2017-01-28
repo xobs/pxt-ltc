@@ -10,7 +10,7 @@ import pxtdocs = pxt.docs;
 namespace pxsim.instructions {
     export function drawInstructions() {
         pxsim.visuals.mkBoardView = (opts: pxsim.visuals.BoardViewOptions): pxsim.visuals.BoardView => {
-            return new visuals.MicrobitBoardSvg({
+            return new visuals.LtcBoardSvg({
                 runtime: runtime,
                 theme: visuals.randomTheme(),
                 disableTilt: false,
@@ -79,7 +79,7 @@ ${tsPackage}
 
         //init runtime
         if (!pxsim.initCurrentRuntime)
-            pxsim.initCurrentRuntime = initRuntimeWithDalBoard;
+            pxsim.initCurrentRuntime = initRuntimeWithLtcBoard;
 
         renderParts({
             name,

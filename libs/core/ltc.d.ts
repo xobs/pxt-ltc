@@ -1,5 +1,5 @@
 // Auto-generated. Do not edit.
-declare const enum DAL {
+declare const enum LTC {
     // built/yt/yotta_modules/microbit-dal/inc/bluetooth/ExternalEvents.h
     MICROBIT_ID_BLE = 1000,
     MICROBIT_ID_BLE_UART = 1200,
@@ -120,42 +120,20 @@ declare const enum DAL {
     // built/yt/yotta_modules/microbit-dal/inc/core/MemberFunctionCallback.h
     // built/yt/yotta_modules/microbit-dal/inc/core/MicroBitCompat.h
     // built/yt/yotta_modules/microbit-dal/inc/core/MicroBitComponent.h
-    MICROBIT_ID_BUTTON_A = 1,
-    MICROBIT_ID_BUTTON_B = 2,
-    MICROBIT_ID_BUTTON_RESET = 3,
-    MICROBIT_ID_ACCELEROMETER = 4,
-    MICROBIT_ID_COMPASS = 5,
-    MICROBIT_ID_DISPLAY = 6,
-    MICROBIT_IO_PINS = 20,
-    MICROBIT_ID_IO_P0 = 7,
-    MICROBIT_ID_IO_P1 = 8,
-    MICROBIT_ID_IO_P2 = 9,
-    MICROBIT_ID_IO_P3 = 10,
-    MICROBIT_ID_IO_P4 = 11,
-    MICROBIT_ID_IO_P5 = 12,
-    MICROBIT_ID_IO_P6 = 13,
-    MICROBIT_ID_IO_P7 = 14,
-    MICROBIT_ID_IO_P8 = 15,
-    MICROBIT_ID_IO_P9 = 16,
-    MICROBIT_ID_IO_P10 = 17,
-    MICROBIT_ID_IO_P11 = 18,
-    MICROBIT_ID_IO_P12 = 19,
-    MICROBIT_ID_IO_P13 = 20,
-    MICROBIT_ID_IO_P14 = 21,
-    MICROBIT_ID_IO_P15 = 22,
-    MICROBIT_ID_IO_P16 = 23,
-    MICROBIT_ID_IO_P19 = 24,
-    MICROBIT_ID_IO_P20 = 25,
-    MICROBIT_ID_BUTTON_AB = 26,
-    MICROBIT_ID_GESTURE = 27,
-    MICROBIT_ID_THERMOMETER = 28,
-    MICROBIT_ID_RADIO = 29,
-    MICROBIT_ID_RADIO_DATA_READY = 30,
-    MICROBIT_ID_MULTIBUTTON_ATTACH = 31,
-    MICROBIT_ID_SERIAL = 32,
-    MICROBIT_ID_MESSAGE_BUS_LISTENER = 1021,
-    MICROBIT_ID_NOTIFY_ONE = 1022,
-    MICROBIT_ID_NOTIFY = 1023,
+    LTC_ID_IO_PINS = 6,
+    LTC_ID_IO_D0 = 0,
+    LTC_ID_IO_D1 = 1,
+    LTC_ID_IO_D2 = 2,
+    LTC_ID_IO_D3 = 3,
+    LTC_ID_IO_D4 = 4,
+    LTC_ID_IO_D5 = 5,
+    LTC_ID_IO_GND0 = 16,
+    LTC_ID_IO_GND1 = 17,
+    LTC_ID_IO_3P0V = 18,
+
+    LTC_BUTTON_EVT_CLICK = 6,
+    LTC_BUTTON_EVT_UP = 7,
+
     MICROBIT_COMPONENT_RUNNING = 0x01,
     // built/yt/yotta_modules/microbit-dal/inc/core/MicroBitDevice.h
     MICROBIT_NAME_LENGTH = 5,

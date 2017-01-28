@@ -166,10 +166,11 @@ namespace pxsim.bluetooth {
         // TODO
     }
     export function uartWrite(s: string): void {
-        serial.writeString(s)
+        // TODO
     }
     export function uartReadUntil(del: string): string {
-        return serial.readUntil(del);
+        // TODO
+        return "";
     }
     export function onBluetoothConnected(a: RefAction) {
         // TODO

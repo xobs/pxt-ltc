@@ -3,14 +3,14 @@ namespace pxsim.input {
         let pin = getPin(pinId);
         if (!pin) return;
         pin.isTouched();
-        pxtcore.registerWithDal(pin.id, DAL.MICROBIT_BUTTON_EVT_CLICK, handler);
+        pxtcore.registerWithDal(pin.id, LTC.LTC_BUTTON_EVT_CLICK, handler);
     }
 
     export function onPinReleased(pinId: number, handler: RefAction) {
         let pin = getPin(pinId);
         if (!pin) return;
         pin.isTouched();
-        pxtcore.registerWithDal(pin.id, DAL.MICROBIT_BUTTON_EVT_UP, handler);
+        pxtcore.registerWithDal(pin.id, LTC.LTC_BUTTON_EVT_UP, handler);
     }
 
     export function pinIsPressed(pinId: number): boolean {
@@ -22,6 +22,12 @@ namespace pxsim.input {
 
 namespace pxsim {
     export function getPin(id: number) {
+        /* Canonicalize pins, converting D0-D15 into 0-15 */
+        if ((id >= 0x80) && (id <= 0x8f))
+            id -= 0x80;
+        /* Canonicalize pins, converting A0-A15 into 0-15 */
+        if ((id >= 0xa0) && (id <= 0xaf))
+            id -= 0xa0;
         return board().edgeConnectorState.getPin(id);
     }
 }
@@ -31,6 +37,7 @@ namespace pxsim.pins {
         let pin = getPin(pinId);
         if (!pin) return;
         pin.mode = PinFlags.Digital | PinFlags.Input;
+        console.log("Reading value from pin " + pin.id + ": " + pin.value);
         return pin.value > 100 ? 1 : 0;
     }
 

@@ -1,11 +1,13 @@
 namespace pxsim.input {
     export function onButtonPressed(button: number, handler: RefAction): void {
         let b = board().buttonPairState;
+        /*
         if (button == b.props.ID_BUTTON_AB && !b.usesButtonAB) {
             b.usesButtonAB = true;
             runtime.queueDisplayUpdate();
         }
-        pxtcore.registerWithDal(button, DAL.MICROBIT_BUTTON_EVT_CLICK, handler);
+        */
+        pxtcore.registerWithDal(button, LTC.LTC_BUTTON_EVT_CLICK, handler);
     }
 
     export function buttonIsPressed(button: number): boolean {
