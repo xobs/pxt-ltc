@@ -1,11 +1,12 @@
 {
-  "name": "pxt-microbit",
+  "name": "pxt-ltc",
   "version": "0.7.44",
   "description": "micro:bit target for PXT",
   "keywords": [
     "JavaScript",
     "education",
-    "microbit"
+    "ltc",
+    "chibitronics"
   ],
   "repository": {
     "type": "git",
