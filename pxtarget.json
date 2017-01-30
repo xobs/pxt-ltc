@@ -152,7 +152,7 @@
         "githubUrl": "https://github.com/Microsoft/pxt-microbit",
         "projectGallery": "projects",
         "crowdinProject": "kindscript",
-        "boardName": "micro:bit",
+        "boardName": "Love-to-Code",
         "sideDoc": "tutorials/getting-started",
         "browserSupport": [
             {
