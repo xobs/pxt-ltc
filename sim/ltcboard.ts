@@ -2,11 +2,41 @@
 /// <reference path="../libs/core/ltc.d.ts"/>
 
 namespace pxsim {
+
+    export interface LtcButtonPairProps {
+        ID_BUTTON_D0: number;
+        ID_BUTTON_D1: number;
+        ID_BUTTON_D2: number;
+        ID_BUTTON_D3: number;
+        ID_BUTTON_D4: number;
+        ID_BUTTON_D5: number;
+        BUTTON_EVT_UP: number;
+        BUTTON_EVT_CLICK: number;
+    }
+
+    export class LtcButtonPairState {
+        d0Btn: Button;
+        d1Btn: Button;
+        d2Btn: Button;
+        d3Btn: Button;
+        d4Btn: Button;
+        d5Btn: Button;
+
+        constructor(public props: LtcButtonPairProps) {
+            this.d0Btn = new Button(this.props.ID_BUTTON_D0);
+            this.d1Btn = new Button(this.props.ID_BUTTON_D1);
+            this.d2Btn = new Button(this.props.ID_BUTTON_D2);
+            this.d3Btn = new Button(this.props.ID_BUTTON_D3);
+            this.d4Btn = new Button(this.props.ID_BUTTON_D4);
+            this.d5Btn = new Button(this.props.ID_BUTTON_D5);
+        }
+    }
+
     export class LtcBoard extends CoreBoard {
         // state & update logic for component services
         edgeConnectorState: EdgeConnectorState;
         thermometerState: ThermometerState;
-        buttonPairState: ButtonPairState;
+        buttonPairState: LtcButtonPairState;
         // TODO: not singletons
         neopixelState: NeoPixelState;
 
@@ -14,25 +44,24 @@ namespace pxsim {
             super()
 
             // components
-            this.builtinParts["buttonpair"] = this.buttonPairState = new ButtonPairState({
+            this.builtinParts["buttonpair"] = this.buttonPairState = new LtcButtonPairState({
                 ID_BUTTON_D0: LTC.LTC_ID_IO_D0,
                 ID_BUTTON_D1: LTC.LTC_ID_IO_D1,
                 ID_BUTTON_D2: LTC.LTC_ID_IO_D2,
                 ID_BUTTON_D3: LTC.LTC_ID_IO_D3,
                 ID_BUTTON_D4: LTC.LTC_ID_IO_D4,
-                ID_BUTTON_D5: LTC.LTC_ID_IO_D5
+                ID_BUTTON_D5: LTC.LTC_ID_IO_D5,
+                BUTTON_EVT_UP: LTC.LTC_BUTTON_EVT_UP,
+                BUTTON_EVT_CLICK: LTC.LTC_BUTTON_EVT_CLICK
             });
             this.builtinParts["edgeconnector"] = this.edgeConnectorState = new EdgeConnectorState({
                 pins: [
-                    LTC.LTC_ID_IO_GND0,
                     LTC.LTC_ID_IO_D0,
                     LTC.LTC_ID_IO_D1,
                     LTC.LTC_ID_IO_D2,
                     LTC.LTC_ID_IO_D3,
                     LTC.LTC_ID_IO_D4,
-                    LTC.LTC_ID_IO_D5,
-                    LTC.LTC_ID_IO_GND1,
-                    LTC.LTC_ID_IO_3P0V
+                    LTC.LTC_ID_IO_D5
                 ]
             });
             this.builtinParts["neopixel"] = this.neopixelState = new NeoPixelState();

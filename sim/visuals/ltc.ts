@@ -328,23 +328,9 @@ namespace pxsim.visuals {
 */
             this.updatePins();
             this.updateTemperature();
-            this.updateButtonAB();
 
             if (!runtime || runtime.dead) svg.addClass(this.element, "grayscale");
             else svg.removeClass(this.element, "grayscale");
-        }
-
-        private updateButtonAB() {
-            let state = this.board;
-            /*
-            if (state.buttonPairState.usesButtonAB && !this.buttonABText) {
-                (<any>this.buttonsOuter[2]).style.visibility = "visible";
-                (<any>this.buttons[2]).style.visibility = "visible";
-                this.buttonABText = svg.child(this.g, "text", { class: "sim-text", x: 370, y: 272 }) as SVGTextElement;
-                this.buttonABText.textContent = "A+B";
-                this.updateTheme();
-            }
-            */
         }
 
         private updatePin(pin: Pin, index: number) {
@@ -366,7 +352,7 @@ namespace pxsim.visuals {
                 v = "100%";
                 if (text) text.textContent = "";
             }
-            if (v) svg.setGradientValue(this.pinGradients[index], v);
+            if (v) svg.setGradientValue(this.pinGradients[index + 1], v);
         }
 
         private updateTemperature() {
@@ -525,7 +511,6 @@ namespace pxsim.visuals {
             })
 
             this.pinTexts = [
-                10,
                 60,
                 110,
                 160,
@@ -576,7 +561,7 @@ namespace pxsim.visuals {
         }
 
         private attachEvents() {
-            this.pins.forEach((pin, index) => {
+            this.pins.slice(1, 6).forEach((pin, index) => {
                 if (!this.board.edgeConnectorState.pins[index]) return;
                 let pt = this.element.createSVGPoint();
                 svg.buttonEvents(pin,
@@ -598,7 +583,7 @@ namespace pxsim.visuals {
                         let pin = state.edgeConnectorState.pins[index];
                         let svgpin = this.pins[index];
                         svg.addClass(svgpin, "touched");
-                        let svgled = this.leds[index - 1];
+                        let svgled = this.leds[index];
                         svg.addClass(svgled, "lit");
                         if (pin.mode & PinFlags.Input) {
                             let cursor = svg.cursorPoint(pt, this.element, ev);
@@ -613,14 +598,13 @@ namespace pxsim.visuals {
                         let pin = state.edgeConnectorState.pins[index];
                         let svgpin = this.pins[index];
                         svg.removeClass(svgpin, "touched");
-                        let svgled = this.leds[index - 1];
+                        let svgled = this.leds[index];
                         svg.removeClass(svgled, "lit");
                         this.updatePin(pin, index);
                         return false;
                     });
             })
-            /*
-            this.pins.slice(0, 3).forEach((btn, index) => {
+            this.pins.slice(1, 6).forEach((btn, index) => {
                 btn.addEventListener(pointerEvents.down, ev => {
                     let state = this.board;
                     state.edgeConnectorState.pins[index].touched = true;
@@ -635,11 +619,10 @@ namespace pxsim.visuals {
                     let state = this.board;
                     state.edgeConnectorState.pins[index].touched = false;
                     this.updatePin(state.edgeConnectorState.pins[index], index);
-                    this.board.bus.queue(state.edgeConnectorState.pins[index].id, DAL.MICROBIT_BUTTON_EVT_UP);
-                    this.board.bus.queue(state.edgeConnectorState.pins[index].id, DAL.MICROBIT_BUTTON_EVT_CLICK);
+                    this.board.bus.queue(state.edgeConnectorState.pins[index].id, LTC.LTC_BUTTON_EVT_UP);
+                    this.board.bus.queue(state.edgeConnectorState.pins[index].id, LTC.LTC_BUTTON_EVT_CLICK);
                 })
             })
-            */
 
             /*
             let bpState = this.board.buttonPairState;

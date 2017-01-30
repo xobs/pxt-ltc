@@ -37,7 +37,7 @@ namespace pxsim.pins {
         let pin = getPin(pinId);
         if (!pin) return;
         pin.mode = PinFlags.Digital | PinFlags.Input;
-        console.log("Reading value from pin " + pin.id + ": " + pin.value);
+        //console.log("Reading value from pin " + pin.id + ": " + pin.value);
         return pin.value > 100 ? 1 : 0;
     }
 
