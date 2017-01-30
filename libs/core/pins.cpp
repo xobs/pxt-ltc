@@ -50,6 +50,7 @@ namespace pins {
     //% help=pins/digital-read-pin weight=30
     //% blockId=device_get_digital_pin block="digital read|pin %name" blockGap=8
     int digitalReadPin(DigitalPin name) {
+        ::pinMode((int)name, 0);
         return ::digitalRead((int)name);
     }
 
@@ -61,6 +62,7 @@ namespace pins {
     //% help=pins/digital-write-pin weight=29
     //% blockId=device_set_digital_pin block="digital write|pin %name|to %value"
     void digitalWritePin(DigitalPin name, int value) {
+        ::pinMode((int)name, 1);
         ::digitalWrite((int)name, value);
     }
 
@@ -71,6 +73,7 @@ namespace pins {
     //% help=pins/analog-read-pin weight=25
     //% blockId=device_get_analog_pin block="analog read|pin %name" blockGap="8" 
     int analogReadPin(AnalogPin name) {
+        ::pinMode((int)name, 0);
         return ::analogRead((int)name);
     }
 
@@ -82,6 +85,7 @@ namespace pins {
     //% help=pins/analog-write-pin weight=24
     //% blockId=device_set_analog_pin block="analog write|pin %name|to %value" blockGap=8
     void analogWritePin(AnalogPin name, int value) { 
+        ::pinMode((int)name, 1);
         ::analogWrite((int)name, value);
     }
 }
