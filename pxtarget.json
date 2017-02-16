@@ -20,7 +20,7 @@
         "githubPackages": true
     },
     "compile": {
-        "isNative": false,
+        "isNative": true,
         "hasHex": true,
         "deployDrives": "(MICROBIT|MBED)",
         "driveName": "MICROBIT",
@@ -108,11 +108,14 @@
         }
     },
     "compileService": {
-        "yottaTarget": "chibitronics-ltc-gcc",
-        "yottaCorePackage": "chibitronics",
-        "githubCorePackage": "xobs/pxt-ltc-core",
-        "gittag": "v0.0.11-broken-ltc",
-        "serviceId": "foobar9"
+        "platformioIni": [
+            "[env:myenv]",
+            "platform = ltc",
+            "framework = ltc",
+            "board = ltc"
+        ],
+        "buildEngine": "platformio",
+        "serviceId": "ltc"
     },
     "blocksprj": {
         "id": "blocksprj",

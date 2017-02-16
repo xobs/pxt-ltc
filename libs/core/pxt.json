@@ -1,6 +1,6 @@
 {
     "name": "core",
-    "description": "The microbit core library",
+    "description": "The love-to-code core library",
     "installedVersion": "tsmdvf",
     "files": [
         "README.md",
@@ -10,6 +10,15 @@
         "basic.cpp",
         "core.cpp",
         "pins.cpp",
+	"utmm.cpp",
+	"utvector.cpp",
+	"utmm.h",
+	"utvector.h",
+	"RefCounted.cpp",
+	"RefCounted.h",
+	"variant.cpp",
+	"pxt.cpp",
+	"pxt.h",
         "pins.ts",
         "enums.d.ts",
         "shims.d.ts",
